@@ -1,0 +1,344 @@
+JoyMouse Project Development Guide for TaskMaster AI
+1. Project Overview
+JoyMouse is a comprehensive accessibility gaming solution designed for people with severe physical disabilities who can only use a mouse. It provides a transparent overlay virtual controller system that enables full game interaction through mouse-only input, featuring virtual joysticks and customizable buttons with hover-based activation.
+Target Audience:
+
+People with severe physical disabilities who can only use a mouse
+Accessibility researchers studying adaptive gaming technologies
+Assistive technology developers building inclusive solutions
+Game developers interested in implementing inclusive design principles
+
+Benchmarking References:
+
+Alt Controller: GUI-based input mapping, profile structure, multi-function input mapping architecture
+Flex Controller Expansion App (FCEA): Panel-based UI, dwell method, macro functionality, profile/panel set structure
+
+2. Technical Stack & Architecture
+Current Implementation Structure:
+JoyMouse/
+├── main.py                        # Entry point and application initialization
+├── core/
+│   ├── logic.py                   # Joystick logic and movement tracking
+│   ├── app_manager.py             # Mode state management and signals
+│   ├── mode_controller.py         # Window focus manager for game targeting
+│   └── settings.py                # INI-based configuration parser
+├── ui/
+│   ├── button_widget.py           # Interactive buttons (hover/click modes)
+│   ├── button_manager.py          # Button registry and JSON/INI config I/O
+│   ├── button_editor.py           # Per-button settings dialog
+│   ├── mode_toolbar.py            # Mode toggle interface
+│   └── hover_button.py            # Legacy hover button implementation
+├── output/
+│   ├── gamepad_output.py          # vgamepad Xbox controller emulation
+│   ├── keyboard_output.py         # pynput keyboard simulation
+│   └── mouse_handler.py           # pynput mouse event simulation
+├── config/
+│   └── joystick_settings.ini      # Persistent joystick configuration
+└── resources/
+    └── icon.png                   # UI assets and icons
+Technology Stack:
+
+Framework: Python with PyQt5 for GUI and transparent overlays
+Input Libraries:
+
+vgamepad for virtual Xbox controller emulation
+pynput for keyboard/mouse simulation
+
+
+Configuration: INI files for joystick settings, JSON for button layouts
+Graphics: Qt's QPainter for custom drawing, transparency, and animations
+
+3. Core Features & Implementation Details
+3.1 Virtual Joystick System (core/logic.py)
+Current Implementation:
+
+Circular transparent virtual joystick with always-on-top display
+Mouse movement within defined radius controls analog stick input
+Deadzone filtering to ignore unintentional minor movements
+Free movement and resizing through drag operations
+Visual feedback with configurable colors, line width, and transparency
+INI-based persistence for all settings
+Automatic position reset and input release when mouse exits window
+Floating settings button for configuration access
+
+Technical Specifications:
+
+Real-time mouse tracking with circular area constraints
+vgamepad left joystick data transmission
+Configurable radius, deadzone, visual styling
+Click-through mode planned for non-blocking mouse passthrough
+
+3.2 Button System (ui/button_widget.py)
+Button Types & Modes:
+
+Activation Methods:
+
+Hover activation with progress gauge visualization
+Click interaction for immediate response
+
+
+Behavior Modes:
+
+Press: Single activation trigger
+Holding: Sustained input while active
+Toggle: On/off state switching
+
+
+Advanced Features:
+
+Drag repositioning and resize handles in edit mode
+Double-click settings dialog access
+Button duplication with ID-based management
+Position offset when cloning buttons
+
+
+
+Gauge Implementation:
+
+Timer-based progress visualization (0.0-1.0 scale)
+Visual feedback with color transitions and filling animations
+Configurable dwell time and release time parameters
+Fade-out or maintain options based on user settings
+
+3.3 Input/Output Processing (output/ modules)
+Architecture:
+
+Modular output system with clear separation of concerns
+Signal-based decoupled processing for responsive input handling
+Support for multiple output types:
+
+gamepad_output.py: vgamepad Xbox controller emulation
+keyboard_output.py: pynput keyboard simulation
+mouse_handler.py: pynput mouse event simulation
+
+
+
+3.4 Mode Management (core/app_manager.py)
+Dual Mode System:
+
+Play Mode:
+
+Real gamepad/keyboard/mouse input transmission
+UI elements hidden or minimized for gameplay
+Focus maintenance on target game windows
+
+
+Edit Mode:
+
+UI repositioning and customization enabled
+Drag movement, resize handles, settings access
+No input transmission to prevent accidental game actions
+
+
+
+Focus Management (core/mode_controller.py):
+
+Automatic game window detection (Steam, Unity, etc.)
+SetForegroundWindow API for focus maintenance
+Per-game profile loading based on focused application
+
+4. Configuration & Data Management
+4.1 Settings Architecture (core/settings.py)
+Joystick Configuration (INI):
+ini[Joystick]
+radius = 100
+deadzone = 0.1
+line_width = 3
+transparency = 0.8
+color_active = #00FF00
+color_inactive = #808080
+Button Configuration (JSON):
+json{
+  "buttons": [
+    {
+      "id": "btn1",
+      "type": "hover",
+      "mode": "toggle",
+      "position": {"x": 400, "y": 300},
+      "size": {"width": 120, "height": 120},
+      "output": {"type": "gamepad", "button": "XINPUT_A"},
+      "timing": {
+        "gauge_time": 1.2,
+        "release_time": 0.3,
+        "repeat": false
+      },
+      "appearance": {
+        "label": "Jump",
+        "color": "#40E0D0",
+        "transparency": 0.7
+      }
+    }
+  ]
+}
+4.2 Button Editor Dialog (ui/button_editor.py)
+Configuration Interface:
+
+Output mapping selection (gamepad buttons, keyboard keys, mouse actions)
+Action mode configuration (press/holding/toggle)
+Timing settings (gauge time, release time, repeat intervals)
+Visual customization (colors, labels, transparency)
+Position and size adjustments with live preview
+
+5. Advanced Features & Roadmap
+5.1 Profile Management System
+Current Development:
+
+Per-game profile support with automatic loading
+Window title detection for profile switching
+Profile import/export functionality
+Favorite profiles and recent usage tracking
+
+5.2 Planned Advanced Features
+Macro System:
+
+Sequential command recording and playback
+Complex input patterns (A → B → L ↑, simultaneous inputs)
+Turbo mode with configurable auto-press intervals
+Macro validation and syntax checking
+
+Editor Enhancements:
+
+Drag snapping and alignment guides
+Grid-based positioning system
+Multi-select operations for batch editing
+Undo/redo functionality
+
+AI Integration:
+
+OpenAI-powered control profile generation
+Automatic layout optimization based on game type
+Accessibility-focused design suggestions
+Smart macro pattern recognition
+
+6. Performance & Quality Requirements
+6.1 Performance Targets
+
+Input Latency: Sub-10ms mouse→gamepad conversion
+UI Responsiveness: 60fps smooth animations and gauge updates
+Resource Usage: <5% CPU during active gameplay
+Memory Footprint: Minimal background operation alongside games
+
+6.2 Accessibility Standards
+
+Visual: High contrast options, scalable UI elements
+Motor: Configurable activation timing, customizable deadzone
+Cognitive: Clear visual feedback, intuitive interface design
+Compatibility: Screen reader support, keyboard navigation
+
+6.3 Code Quality Standards
+Architecture Principles:
+
+Modular design with clear separation of concerns
+Signal-based communication between components
+Comprehensive error handling and graceful degradation
+Extensive logging for debugging and user support
+
+Coding Standards:
+
+PascalCase for classes (ButtonWidget, AppManager)
+snake_case for functions and variables (save_button_config, joystick_radius)
+Comprehensive docstrings and type hints
+Unit test coverage for all core functionality
+
+7. Development Implementation Priority
+7.1 Core Features (Highest Priority)
+
+Joystick System Completion
+
+Click-through mode implementation
+Enhanced visual feedback options
+Performance optimization for real-time tracking
+
+
+Button System Enhancement
+
+Complete hover/click mode implementation
+Gauge animation smoothing and customization
+Advanced interaction modes (turbo, macro)
+
+
+Mode Management
+
+Robust edit/play mode switching
+Enhanced window focus management
+Profile auto-switching based on active application
+
+
+
+7.2 Advanced Features (Medium Priority)
+
+Profile Management
+
+Game-specific configuration system
+Import/export functionality
+Profile templates and sharing
+
+
+Macro System
+
+Basic sequential command support
+Recording and playback interface
+Pattern validation and optimization
+
+
+
+7.3 AI and Extensions (Lower Priority)
+
+OpenAI Integration
+
+Profile generation assistance
+Layout optimization recommendations
+Accessibility analysis and suggestions
+
+
+Advanced Customization
+
+Theme system and visual customization
+Plugin architecture for community extensions
+Advanced accessibility features
+
+
+
+8. Testing & Validation Strategy
+8.1 Functional Testing
+
+Input Accuracy: Precise mouse→gamepad conversion validation
+Timing Verification: Gauge timing and response accuracy
+Mode Switching: Seamless transition between edit/play modes
+Configuration Persistence: Save/load functionality across sessions
+
+8.2 Accessibility Testing
+
+User Testing: Validation with target disability communities
+Assistive Technology: Compatibility with screen readers and alternative input devices
+Usability Analysis: Workflow efficiency and learning curve assessment
+
+8.3 Performance Testing
+
+Latency Measurement: Input response time analysis
+Resource Monitoring: CPU and memory usage during extended sessions
+Compatibility Testing: Validation across different games and systems
+
+9. Success Metrics & Goals
+9.1 Technical Performance
+
+Latency: <10ms average input response time
+Accuracy: >99% input detection and conversion reliability
+Stability: Zero-crash operation during 4+ hour gaming sessions
+Compatibility: Support for 95%+ of mainstream games
+
+9.2 User Experience
+
+Setup Time: <5 minutes from installation to first game use
+Learning Curve: Basic proficiency achievable within 30 minutes
+Customization: Full profile creation possible within 15 minutes
+Satisfaction: >90% user satisfaction in accessibility community feedback
+
+9.3 Community Impact
+
+Adoption: Usage by 1000+ individuals with disabilities within first year
+Developer Integration: Adoption by 5+ game developers for built-in accessibility
+Research Contribution: Publication in 2+ accessibility conferences
+Open Source: Active community contributions and forks
+
+This comprehensive development guide provides the foundation for creating JoyMouse as a leading accessibility gaming solution, with clear technical specifications, implementation priorities, and measurable success criteria that ensure maximum impact for users with disabilities.

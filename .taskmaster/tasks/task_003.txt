@@ -1,0 +1,44 @@
+# Task ID: 3
+# Title: Mode Management System
+# Status: pending
+# Dependencies: 1, 2
+# Priority: high
+# Category: Core
+# Description: Implement robust edit/play mode switching with enhanced window focus management
+# Details:
+Enhance core/app_manager.py and core/mode_controller.py to provide seamless switching between play mode (input transmission enabled, UI minimized) and edit mode (repositioning enabled, no input transmission). Implement automatic game window detection using Steam, Unity patterns and SetForegroundWindow API for focus maintenance. Add per-game profile loading based on focused application.
+
+# Test Strategy:
+Test mode switching reliability, window focus management across different games, profile auto-loading functionality, and verify no accidental input transmission in edit mode
+
+# Subtasks:
+## 1. 편집/플레이 모드 전환 [pending]
+### Dependencies: None
+### Description: 모드 간 매끄러운 UI 전환
+### Details:
+
+
+## 2. 게임 윈도우 자동 감지 [pending]
+### Dependencies: None
+### Description: Steam, Unity 패턴 기반 게임 인식
+### Details:
+
+
+## 3. 윈도우 포커스 관리 [pending]
+### Dependencies: None
+### Description: SetForegroundWindow API 기반 포커스 유지
+### Details:
+
+
+## 4. 게임별 프로필 자동 로딩 [pending]
+### Dependencies: None
+### Description: 포커스된 애플리케이션에 따른 프로필 전환
+### Details:
+
+
+## 5. 입력 전송 제어 [pending]
+### Dependencies: None
+### Description: 플레이 모드에서 입력 활성화/비활성화
+### Details:
+
+

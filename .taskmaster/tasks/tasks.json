@@ -1,0 +1,616 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Core Joystick System Enhancement",
+        "description": "Implement click-through mode and optimize real-time mouse tracking performance for the virtual joystick system",
+        "details": "Enhance core/logic.py to implement click-through mode allowing mouse passthrough when not actively controlling joystick. Optimize mouse tracking to achieve sub-10ms latency. Add configurable visual feedback options including color transitions and transparency effects. Implement circular area constraints with proper deadzone filtering and automatic position reset when mouse exits window.",
+        "testStrategy": "Unit tests for mouse coordinate conversion, latency measurement tests to verify <10ms response time, visual feedback validation, and deadzone accuracy testing with various mouse movements",
+        "priority": "high",
+        "category": "Core",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "클릭스루 모드 이벤트 처리",
+            "description": "마우스 패스스루 윈도우 이벤트 처리 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 2,
+            "title": "실시간 마우스 추적 알고리즘",
+            "description": "10ms 미만 지연시간 마우스 추적 구현",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 3,
+            "title": "원형 영역 제약 시스템",
+            "description": "조이스틱 원형 범위 및 데드존 필터링",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 4,
+            "title": "시각적 피드백 시스템",
+            "description": "색상 전환 및 투명도 효과 구현",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 5,
+            "title": "자동 위치 리셋 기능",
+            "description": "윈도우 벗어남 시 자동 위치 초기화",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 6,
+            "title": "조이스틱 상태 관리",
+            "description": "활성/비활성 상태 전환 로직",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 7,
+            "title": "성능 최적화 및 메모리 관리",
+            "description": "조이스틱 시스템 메모리 최적화",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Button System Mode Implementation",
+        "description": "Complete hover and click activation modes with gauge visualization and timing controls",
+        "details": "Enhance ui/button_widget.py to fully implement hover activation with progress gauge (0.0-1.0 scale), click interaction modes, and press/holding/toggle behaviors. Add timer-based progress visualization with color transitions, configurable dwell time and release time parameters. Implement drag repositioning, resize handles in edit mode, and double-click settings access.",
+        "testStrategy": "Test gauge timing accuracy, hover detection precision, click response validation, and visual feedback consistency. Verify drag operations and resize functionality work correctly in edit mode",
+        "priority": "high",
+        "category": "Core",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "호버 활성화 진행바",
+            "description": "0.0-1.0 스케일 진행 게이지 구현",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 2,
+            "title": "클릭 상호작용 모드",
+            "description": "클릭 활성화 및 토글 동작",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 3,
+            "title": "타이머 기반 진행 시각화",
+            "description": "색상 전환과 시간 설정 가능한 진행바",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 4,
+            "title": "버튼 재배치 시스템",
+            "description": "드래그 앤 드롭으로 버튼 위치 조정",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 5,
+            "title": "버튼 크기 조절 핸들",
+            "description": "편집 모드에서 버튼 크기 실시간 조절",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Mode Management System",
+        "description": "Implement robust edit/play mode switching with enhanced window focus management",
+        "details": "Enhance core/app_manager.py and core/mode_controller.py to provide seamless switching between play mode (input transmission enabled, UI minimized) and edit mode (repositioning enabled, no input transmission). Implement automatic game window detection using Steam, Unity patterns and SetForegroundWindow API for focus maintenance. Add per-game profile loading based on focused application.",
+        "testStrategy": "Test mode switching reliability, window focus management across different games, profile auto-loading functionality, and verify no accidental input transmission in edit mode",
+        "priority": "high",
+        "category": "Core",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "편집/플레이 모드 전환",
+            "description": "모드 간 매끄러운 UI 전환",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 2,
+            "title": "게임 윈도우 자동 감지",
+            "description": "Steam, Unity 패턴 기반 게임 인식",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 3,
+            "title": "윈도우 포커스 관리",
+            "description": "SetForegroundWindow API 기반 포커스 유지",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 4,
+            "title": "게임별 프로필 자동 로딩",
+            "description": "포커스된 애플리케이션에 따른 프로필 전환",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 5,
+            "title": "입력 전송 제어",
+            "description": "플레이 모드에서 입력 활성화/비활성화",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Configuration Management Enhancement",
+        "description": "Enhance INI and JSON configuration system with validation and persistence optimization",
+        "details": "Improve core/settings.py to handle joystick INI configuration and button JSON configuration with robust error handling. Implement configuration validation, automatic backup creation, and migration support for configuration format updates. Add real-time configuration updates without requiring application restart.",
+        "testStrategy": "Test configuration save/load reliability, validation of malformed configs, migration between config versions, and real-time update functionality",
+        "priority": "medium",
+        "category": "System",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "INI 파일 검증",
+            "description": "INI 설정 파일 형식 및 값 검증",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          },
+          {
+            "id": 2,
+            "title": "JSON 설정 관리",
+            "description": "JSON 기반 고급 설정 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          },
+          {
+            "id": 3,
+            "title": "설정 지속성 최적화",
+            "description": "설정 저장/로드 성능 개선",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Button Editor Dialog Enhancement",
+        "description": "Complete button editor with comprehensive configuration options and live preview",
+        "details": "Enhance ui/button_editor.py to provide complete configuration interface including output mapping selection (gamepad buttons, keyboard keys, mouse actions), action mode configuration, timing settings, and visual customization. Implement live preview functionality, position/size adjustments, and validation for all configuration options.",
+        "testStrategy": "Test all configuration options work correctly, live preview accuracy, validation of invalid inputs, and proper saving/loading of button configurations",
+        "priority": "medium",
+        "category": "Features",
+        "dependencies": [
+          2,
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "출력 매핑 설정",
+            "description": "게임패드/키보드/마우스 출력 선택",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          },
+          {
+            "id": 2,
+            "title": "라이브 프리뷰",
+            "description": "설정 변경 시 실시간 미리보기",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          },
+          {
+            "id": 3,
+            "title": "설정 검증 시스템",
+            "description": "모든 설정 옵션 유효성 검사",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Profile Management System",
+        "description": "Implement per-game profile system with automatic loading and import/export functionality",
+        "details": "Create comprehensive profile management system supporting per-game configurations with automatic loading based on window title detection. Implement profile import/export functionality, favorite profiles tracking, recent usage history, and profile templates. Add profile validation and conflict resolution.",
+        "testStrategy": "Test automatic profile switching, import/export functionality, profile validation, and ensure profiles load correctly for different games",
+        "priority": "medium",
+        "category": "Features",
+        "dependencies": [
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "게임별 프로필 생성",
+            "description": "각 게임에 특화된 프로필 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 2,
+            "title": "자동 프로필 로딩",
+            "description": "게임 실행 시 자동 프로필 적용",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 3,
+            "title": "프로필 가져오기/내보내기",
+            "description": "프로필 파일 형태로 백업/복원",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 4,
+            "title": "프로필 검색 및 관리",
+            "description": "프로필 목록 관리 및 검색 기능",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 5,
+            "title": "프로필 백업 자동화",
+            "description": "정기적 프로필 자동 백업 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Input/Output Processing Optimization",
+        "description": "Optimize vgamepad, pynput integration for minimal latency and maximum compatibility",
+        "details": "Optimize output/ modules (gamepad_output.py, keyboard_output.py, mouse_handler.py) to achieve sub-10ms mouse→gamepad conversion. Implement signal-based decoupled processing, enhance error handling for input/output operations, and ensure compatibility with 95%+ of mainstream games. Add input validation and sanitization.",
+        "testStrategy": "Latency measurement tests, compatibility testing across different games, input accuracy validation, and stress testing with extended gaming sessions",
+        "priority": "medium",
+        "category": "System",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "vgamepad 드라이버 최적화",
+            "description": "가상 게임패드 드라이버 지연시간 최소화",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 2,
+            "title": "pynput 입력 처리 개선",
+            "description": "키보드/마우스 입력 캡처 성능 향상",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 3,
+            "title": "입력 큐 최적화",
+            "description": "입력 이벤트 큐 처리 속도 향상",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 4,
+            "title": "다중 플랫폼 호환성",
+            "description": "Windows/Linux 호환성 보장",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 5,
+            "title": "동시성 처리 개선",
+            "description": "멀티스레드 입출력 처리 최적화",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 6,
+            "title": "에러 핸들링 강화",
+            "description": "입출력 에러 복구 메커니즘",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 7,
+            "title": "입출력 캐싱 시스템",
+            "description": "자주 사용되는 입력 패턴 캐싱",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Basic Macro System Implementation",
+        "description": "Implement sequential command recording and playbook with turbo mode support",
+        "details": "Create basic macro system supporting sequential command recording and playback, complex input patterns (A → B → L ↑, simultaneous inputs), and turbo mode with configurable auto-press intervals. Implement macro validation, syntax checking, and integration with button system for macro assignment.",
+        "testStrategy": "Test macro recording accuracy, playback reliability, turbo mode timing precision, and validate complex input pattern execution",
+        "priority": "medium",
+        "category": "Features",
+        "dependencies": [
+          5,
+          7
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "순차적 명령 녹화",
+            "description": "사용자 입력 시퀀스 기록",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 2,
+            "title": "플레이북 시스템",
+            "description": "매크로 시퀀스 재생 엔진",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 3,
+            "title": "터보 모드 지원",
+            "description": "빠른 반복 입력 모드",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 4,
+            "title": "매크로 조건 처리",
+            "description": "조건부 매크로 실행 로직",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 5,
+            "title": "매크로 편집 도구",
+            "description": "녹화된 매크로 수정 및 편집",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Performance Optimization and Quality Assurance",
+        "description": "Implement comprehensive performance monitoring and optimization to meet accessibility standards",
+        "details": "Implement performance monitoring to achieve <5% CPU usage during gameplay, maintain 60fps UI animations, and ensure <10ms input latency. Add comprehensive error handling, logging system for debugging, and memory optimization. Implement accessibility features including high contrast options, scalable UI elements, and screen reader compatibility.",
+        "testStrategy": "Performance benchmarking, resource usage monitoring during extended sessions, accessibility compliance testing, and user experience validation with target disability communities",
+        "priority": "high",
+        "category": "QA",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "실시간 성능 모니터링",
+            "description": "CPU/메모리 사용량 실시간 추적",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 2,
+            "title": "병목지점 분석 도구",
+            "description": "성능 저하 원인 자동 분석",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 3,
+            "title": "접근성 표준 준수",
+            "description": "장애인 접근성 가이드라인 구현",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 4,
+            "title": "자동 최적화 엔진",
+            "description": "실시간 성능 조정 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 5,
+            "title": "품질 보증 테스트",
+            "description": "자동화 테스트 및 품질 검증",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 6,
+            "title": "메모리 누수 검사",
+            "description": "장시간 실행 시 메모리 안정성 검증",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          },
+          {
+            "id": 7,
+            "title": "성능 리포팅 시스템",
+            "description": "성능 지표 대시보드 및 리포트",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 9
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Advanced UI Features and Polish",
+        "description": "Implement advanced editor features including grid snapping, multi-select operations, and undo/redo functionality",
+        "details": "Add advanced editor enhancements including drag snapping and alignment guides, grid-based positioning system, multi-select operations for batch editing, and undo/redo functionality. Implement theme system for visual customization, advanced gauge animation smoothing, and enhanced visual feedback options.",
+        "testStrategy": "Test all advanced editor features, verify undo/redo reliability, validate multi-select operations, and ensure smooth animations and visual feedback across different themes",
+        "priority": "low",
+        "category": "UI/UX",
+        "dependencies": [
+          6,
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "그리드 스내핑 시스템",
+            "description": "버튼 배치용 격자 정렬 시스템",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 10
+          },
+          {
+            "id": 2,
+            "title": "다중 선택 작업",
+            "description": "여러 버튼 일괄 편집 기능",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 10
+          },
+          {
+            "id": 3,
+            "title": "실행취소/다시실행",
+            "description": "편집 작업 히스토리 관리",
+            "details": "",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 10
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-23T23:15:46.174Z",
+      "updated": "2025-07-23T23:18:26.190Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

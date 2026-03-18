@@ -1,0 +1,54 @@
+# Task ID: 1
+# Title: Core Joystick System Enhancement
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Category: Core
+# Description: Implement click-through mode and optimize real-time mouse tracking performance for the virtual joystick system
+# Details:
+Enhance core/logic.py to implement click-through mode allowing mouse passthrough when not actively controlling joystick. Optimize mouse tracking to achieve sub-10ms latency. Add configurable visual feedback options including color transitions and transparency effects. Implement circular area constraints with proper deadzone filtering and automatic position reset when mouse exits window.
+
+# Test Strategy:
+Unit tests for mouse coordinate conversion, latency measurement tests to verify <10ms response time, visual feedback validation, and deadzone accuracy testing with various mouse movements
+
+# Subtasks:
+## 1. 클릭스루 모드 이벤트 처리 [pending]
+### Dependencies: None
+### Description: 마우스 패스스루 윈도우 이벤트 처리 시스템
+### Details:
+
+
+## 2. 실시간 마우스 추적 알고리즘 [pending]
+### Dependencies: None
+### Description: 10ms 미만 지연시간 마우스 추적 구현
+### Details:
+
+
+## 3. 원형 영역 제약 시스템 [pending]
+### Dependencies: None
+### Description: 조이스틱 원형 범위 및 데드존 필터링
+### Details:
+
+
+## 4. 시각적 피드백 시스템 [pending]
+### Dependencies: None
+### Description: 색상 전환 및 투명도 효과 구현
+### Details:
+
+
+## 5. 자동 위치 리셋 기능 [pending]
+### Dependencies: None
+### Description: 윈도우 벗어남 시 자동 위치 초기화
+### Details:
+
+
+## 6. 조이스틱 상태 관리 [pending]
+### Dependencies: None
+### Description: 활성/비활성 상태 전환 로직
+### Details:
+
+
+## 7. 성능 최적화 및 메모리 관리 [pending]
+### Dependencies: None
+### Description: 조이스틱 시스템 메모리 최적화
+### Details:

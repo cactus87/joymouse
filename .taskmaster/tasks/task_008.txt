@@ -1,0 +1,43 @@
+# Task ID: 8
+# Title: Basic Macro System Implementation
+# Status: pending
+# Dependencies: 5, 7
+# Priority: medium
+# Description: Implement sequential command recording and playbook with turbo mode support
+# Details:
+Create basic macro system supporting sequential command recording and playback, complex input patterns (A → B → L ↑, simultaneous inputs), and turbo mode with configurable auto-press intervals. Implement macro validation, syntax checking, and integration with button system for macro assignment.
+
+# Test Strategy:
+Test macro recording accuracy, playback reliability, turbo mode timing precision, and validate complex input pattern execution
+
+# Subtasks:
+## 1. 순차적 명령 녹화 [pending]
+### Dependencies: None
+### Description: 사용자 입력 시퀀스 기록
+### Details:
+
+
+## 2. 플레이북 시스템 [pending]
+### Dependencies: None
+### Description: 매크로 시퀀스 재생 엔진
+### Details:
+
+
+## 3. 터보 모드 지원 [pending]
+### Dependencies: None
+### Description: 빠른 반복 입력 모드
+### Details:
+
+
+## 4. 매크로 조건 처리 [pending]
+### Dependencies: None
+### Description: 조건부 매크로 실행 로직
+### Details:
+
+
+## 5. 매크로 편집 도구 [pending]
+### Dependencies: None
+### Description: 녹화된 매크로 수정 및 편집
+### Details:
+
+

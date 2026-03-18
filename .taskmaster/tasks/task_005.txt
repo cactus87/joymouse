@@ -1,0 +1,32 @@
+# Task ID: 5
+# Title: Button Editor Dialog Enhancement
+# Status: pending
+# Dependencies: 2, 4
+# Priority: medium
+# Category: Features
+# Description: Complete button editor with comprehensive configuration options and live preview
+# Details:
+Enhance ui/button_editor.py to provide complete configuration interface including output mapping selection (gamepad buttons, keyboard keys, mouse actions), action mode configuration, timing settings, and visual customization. Implement live preview functionality, position/size adjustments, and validation for all configuration options.
+
+# Test Strategy:
+Test all configuration options work correctly, live preview accuracy, validation of invalid inputs, and proper saving/loading of button configurations
+
+# Subtasks:
+## 1. 출력 매핑 설정 [pending]
+### Dependencies: None
+### Description: 게임패드/키보드/마우스 출력 선택
+### Details:
+
+
+## 2. 라이브 프리뷰 [pending]
+### Dependencies: None
+### Description: 설정 변경 시 실시간 미리보기
+### Details:
+
+
+## 3. 설정 검증 시스템 [pending]
+### Dependencies: None
+### Description: 모든 설정 옵션 유효성 검사
+### Details:
+
+

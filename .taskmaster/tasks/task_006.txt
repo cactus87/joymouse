@@ -1,0 +1,42 @@
+# Task ID: 6
+# Title: Profile Management System
+# Status: pending
+# Dependencies: 3, 4
+# Priority: medium
+# Category: Features
+# Description: Implement per-game profile system with automatic loading and import/export functionality
+# Details:
+Create comprehensive profile management system supporting per-game configurations with automatic loading based on window title detection. Implement profile import/export functionality, favorite profiles tracking, recent usage history, and profile templates. Add profile validation and conflict resolution.
+
+# Test Strategy:
+Test automatic profile switching, import/export functionality, profile validation, and ensure profiles load correctly for different games
+
+# Subtasks:
+## 1. 게임별 프로필 생성 [pending]
+### Dependencies: None
+### Description: 각 게임에 특화된 프로필 시스템
+### Details:
+
+
+## 2. 자동 프로필 로딩 [pending]
+### Dependencies: None
+### Description: 게임 실행 시 자동 프로필 적용
+### Details:
+
+
+## 3. 프로필 가져오기/내보내기 [pending]
+### Dependencies: None
+### Description: 프로필 파일 형태로 백업/복원
+### Details:
+
+
+## 4. 프로필 검색 및 관리 [pending]
+### Dependencies: None
+### Description: 프로필 목록 관리 및 검색 기능
+### Details:
+
+
+## 5. 프로필 백업 자동화 [pending]
+### Dependencies: None
+### Description: 정기적 프로필 자동 백업 시스템
+### Details:

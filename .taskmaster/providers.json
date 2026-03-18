@@ -1,0 +1,11 @@
+e{
+  "providers": [
+    {
+      "provider": "default-local",
+      "modelId": "sonnet",
+      "id": "default-local",
+      "type": "local",
+      "path": "./"
+    }
+  ]
+}
